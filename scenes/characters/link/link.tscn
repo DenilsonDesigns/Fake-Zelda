@@ -1,3 +1,86 @@
-[gd_scene format=3 uid="uid://cr3lxb1hptwds"]
+[gd_scene load_steps=12 format=3 uid="uid://cr3lxb1hptwds"]
 
-[node name="Link" type="Node2D"]
+[ext_resource type="Texture2D" uid="uid://dnoev03or2wdi" path="res://assets/link.png" id="1_wrtov"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_735le"]
+atlas = ExtResource("1_wrtov")
+region = Rect2(0, 0, 20, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qa66e"]
+atlas = ExtResource("1_wrtov")
+region = Rect2(20, 0, 20, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_slcyy"]
+atlas = ExtResource("1_wrtov")
+region = Rect2(40, 0, 20, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oirdi"]
+atlas = ExtResource("1_wrtov")
+region = Rect2(60, 0, 20, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_syuac"]
+atlas = ExtResource("1_wrtov")
+region = Rect2(80, 0, 20, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wjbbv"]
+atlas = ExtResource("1_wrtov")
+region = Rect2(100, 0, 20, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lgj31"]
+atlas = ExtResource("1_wrtov")
+region = Rect2(120, 0, 20, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g0vu7"]
+atlas = ExtResource("1_wrtov")
+region = Rect2(140, 0, 20, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iy6yj"]
+atlas = ExtResource("1_wrtov")
+region = Rect2(160, 0, 20, 30)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_inuvl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_735le")
+}],
+"loop": true,
+"name": &"idle_front",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qa66e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_slcyy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oirdi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_syuac")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wjbbv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lgj31")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g0vu7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iy6yj")
+}],
+"loop": true,
+"name": &"walk_down",
+"speed": 7.0
+}]
+
+[node name="Link" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_inuvl")
+animation = &"walk_down"
+autoplay = "idle_front"
