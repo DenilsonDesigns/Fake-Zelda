@@ -1,5 +1,6 @@
-[gd_scene load_steps=43 format=3 uid="uid://cr3lxb1hptwds"]
+[gd_scene load_steps=45 format=3 uid="uid://cr3lxb1hptwds"]
 
+[ext_resource type="Script" uid="uid://58fv7giqhb4m" path="res://scenes/characters/link/link.gd" id="1_735le"]
 [ext_resource type="Texture2D" uid="uid://dnoev03or2wdi" path="res://assets/link.png" id="1_wrtov"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_735le"]
@@ -335,9 +336,18 @@ animations = [{
 "speed": 7.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_qa66e"]
+radius = 6.0
+
 [node name="Link" type="CharacterBody2D"]
+script = ExtResource("1_735le")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, -8)
 sprite_frames = SubResource("SpriteFrames_inuvl")
-animation = &"idle_side"
+animation = &"idle_down"
 autoplay = "idle_down"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -5)
+shape = SubResource("CircleShape2D_qa66e")
