@@ -21,7 +21,6 @@ func _physics_process(_delta: float) -> void:
 
 
 func update_animation(dir: Vector2) -> void:
-	print("last move dir: ", last_move_dir)
 	if dir == Vector2.ZERO:
 		if abs(last_move_dir.x) > abs(last_move_dir.y):
 			animated_sprite_2d.animation = "idle_side"
