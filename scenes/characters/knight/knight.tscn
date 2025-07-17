@@ -1,6 +1,7 @@
-[gd_scene load_steps=38 format=3 uid="uid://ccr070o0mqvjp"]
+[gd_scene load_steps=40 format=3 uid="uid://ccr070o0mqvjp"]
 
 [ext_resource type="Texture2D" uid="uid://qhrb3apsmt6b" path="res://assets/knight.png" id="1_h6br4"]
+[ext_resource type="Script" uid="uid://bmr3gt6i721ws" path="res://scenes/characters/knight/knight.gd" id="1_spyc7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_spyc7"]
 atlas = ExtResource("1_h6br4")
@@ -385,9 +386,21 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_h6br4"]
+radius = 7.07107
+
 [node name="Knight" type="CharacterBody2D"]
+script = ExtResource("1_spyc7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(3, -7)
 sprite_frames = SubResource("SpriteFrames_74qw0")
-animation = &"swing_up_head_right"
+animation = &"walk_side_head_down"
 autoplay = "idle_down"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -5)
+shape = SubResource("CircleShape2D_h6br4")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+avoidance_enabled = true
