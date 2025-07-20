@@ -255,9 +255,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_1bcm6")
 }],
-"loop": true,
+"loop": false,
 "name": &"swing_down",
-"speed": 9.0
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -275,9 +275,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_62axj")
 }],
-"loop": true,
+"loop": false,
 "name": &"swing_side",
-"speed": 9.0
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -295,9 +295,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_cnnwa")
 }],
-"loop": true,
+"loop": false,
 "name": &"swing_up",
-"speed": 9.0
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -388,10 +388,12 @@ radius = 6.0
 script = ExtResource("1_735le")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(1, -8)
+position = Vector2(-5, -8)
 sprite_frames = SubResource("SpriteFrames_inuvl")
 animation = &"swing_up"
 autoplay = "idle_down"
+frame = 4
+frame_progress = 1.0
 offset = Vector2(5, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
