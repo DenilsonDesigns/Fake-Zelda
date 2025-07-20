@@ -1,0 +1,66 @@
+[gd_scene load_steps=9 format=3 uid="uid://dxuwyf82cs87g"]
+
+[ext_resource type="Texture2D" uid="uid://kfwupd4bk24q" path="res://assets/shrub.png" id="1_18mj4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_18mj4"]
+atlas = ExtResource("1_18mj4")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sfcqw"]
+atlas = ExtResource("1_18mj4")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3yfbn"]
+atlas = ExtResource("1_18mj4")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cbbnk"]
+atlas = ExtResource("1_18mj4")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_abapo"]
+atlas = ExtResource("1_18mj4")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sfcqw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_18mj4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sfcqw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3yfbn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cbbnk")
+}],
+"loop": false,
+"name": &"cut_down",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_abapo")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3yfbn"]
+radius = 7.0
+
+[node name="Shrub" type="StaticBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_sfcqw")
+animation = &"cut_down"
+autoplay = "default"
+frame = 3
+frame_progress = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_3yfbn")
