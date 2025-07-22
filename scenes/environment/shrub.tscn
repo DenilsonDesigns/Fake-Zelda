@@ -1,6 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://dxuwyf82cs87g"]
+[gd_scene load_steps=10 format=3 uid="uid://dxuwyf82cs87g"]
 
 [ext_resource type="Texture2D" uid="uid://kfwupd4bk24q" path="res://assets/shrub.png" id="1_18mj4"]
+[ext_resource type="Script" uid="uid://c60o8vg8psb2y" path="res://scenes/environment/shrub.gd" id="1_abapo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_abapo"]
+atlas = ExtResource("1_18mj4")
+region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_18mj4"]
 atlas = ExtResource("1_18mj4")
@@ -18,12 +23,16 @@ region = Rect2(32, 0, 16, 16)
 atlas = ExtResource("1_18mj4")
 region = Rect2(48, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_abapo"]
-atlas = ExtResource("1_18mj4")
-region = Rect2(0, 0, 16, 16)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_sfcqw"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_abapo")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_18mj4")
@@ -38,29 +47,29 @@ animations = [{
 "texture": SubResource("AtlasTexture_cbbnk")
 }],
 "loop": false,
-"name": &"cut_down",
+"name": &"destroy",
 "speed": 10.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_abapo")
-}],
-"loop": false,
-"name": &"default",
-"speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_3yfbn"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_18mj4"]
 radius = 7.0
 
 [node name="Shrub" type="StaticBody2D"]
+y_sort_enabled = true
+script = ExtResource("1_abapo")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(5, -9)
 sprite_frames = SubResource("SpriteFrames_sfcqw")
-animation = &"cut_down"
+animation = &"destroy"
 autoplay = "default"
-frame = 3
-frame_progress = 1.0
+offset = Vector2(-5, 8)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_3yfbn")
+[node name="HitBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(0, -1)
+shape = SubResource("CircleShape2D_18mj4")
+debug_color = Color(0.794024, 0.338151, 0.666712, 0.42)
+
+[connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]

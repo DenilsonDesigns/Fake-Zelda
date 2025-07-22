@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://cr3lxb1hptwds"]
+[gd_scene load_steps=52 format=3 uid="uid://cr3lxb1hptwds"]
 
 [ext_resource type="Script" uid="uid://58fv7giqhb4m" path="res://scenes/characters/link/link.gd" id="1_735le"]
 [ext_resource type="Texture2D" uid="uid://dnoev03or2wdi" path="res://assets/link.png" id="1_wrtov"]
@@ -384,18 +384,26 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_qa66e"]
 radius = 6.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qa66e"]
+size = Vector2(20, 4)
+
 [node name="Link" type="CharacterBody2D"]
+y_sort_enabled = true
 script = ExtResource("1_735le")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-5, -8)
 sprite_frames = SubResource("SpriteFrames_inuvl")
-animation = &"swing_up"
+animation = &"idle_side"
 autoplay = "idle_down"
-frame = 4
-frame_progress = 1.0
-offset = Vector2(5, 0)
+offset = Vector2(5, -9)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, -5)
 shape = SubResource("CircleShape2D_qa66e")
+
+[node name="SwordHitBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SwordHitBox"]
+position = Vector2(4, -22)
+shape = SubResource("RectangleShape2D_qa66e")
+debug_color = Color(0.927635, 0.108248, 0.606425, 0.42)
