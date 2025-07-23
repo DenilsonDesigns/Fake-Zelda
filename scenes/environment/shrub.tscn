@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dxuwyf82cs87g"]
+[gd_scene load_steps=11 format=3 uid="uid://dxuwyf82cs87g"]
 
 [ext_resource type="Texture2D" uid="uid://kfwupd4bk24q" path="res://assets/shrub.png" id="1_18mj4"]
 [ext_resource type="Script" uid="uid://c60o8vg8psb2y" path="res://scenes/environment/shrub.gd" id="1_abapo"]
@@ -51,6 +51,9 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_abapo"]
+radius = 7.07107
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_18mj4"]
 radius = 7.0
 
@@ -65,10 +68,14 @@ animation = &"destroy"
 autoplay = "default"
 offset = Vector2(-5, 8)
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -2)
+shape = SubResource("CircleShape2D_abapo")
+
 [node name="HitBox" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
-position = Vector2(0, -1)
+[node name="HitBoxShape" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(0, -2)
 shape = SubResource("CircleShape2D_18mj4")
 debug_color = Color(0.794024, 0.338151, 0.666712, 0.42)
 
