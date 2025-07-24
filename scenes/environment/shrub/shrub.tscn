@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://dxuwyf82cs87g"]
 
 [ext_resource type="Texture2D" uid="uid://kfwupd4bk24q" path="res://assets/shrub.png" id="1_18mj4"]
-[ext_resource type="Script" uid="uid://c60o8vg8psb2y" path="res://scenes/environment/shrub.gd" id="1_abapo"]
+[ext_resource type="Script" uid="uid://c60o8vg8psb2y" path="res://scenes/environment/shrub/shrub.gd" id="1_abapo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_abapo"]
 atlas = ExtResource("1_18mj4")
@@ -62,20 +62,16 @@ y_sort_enabled = true
 script = ExtResource("1_abapo")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(5, -9)
 sprite_frames = SubResource("SpriteFrames_sfcqw")
 animation = &"destroy"
 autoplay = "default"
-offset = Vector2(-5, 8)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -2)
 shape = SubResource("CircleShape2D_abapo")
 
 [node name="HitBox" type="Area2D" parent="."]
 
 [node name="HitBoxShape" type="CollisionShape2D" parent="HitBox"]
-position = Vector2(0, -2)
 shape = SubResource("CircleShape2D_18mj4")
 debug_color = Color(0.794024, 0.338151, 0.666712, 0.42)
 
