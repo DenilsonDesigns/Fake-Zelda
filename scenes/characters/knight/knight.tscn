@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://ccr070o0mqvjp"]
+[gd_scene load_steps=41 format=3 uid="uid://ccr070o0mqvjp"]
 
 [ext_resource type="Texture2D" uid="uid://qhrb3apsmt6b" path="res://assets/knight.png" id="1_h6br4"]
 [ext_resource type="Script" uid="uid://bmr3gt6i721ws" path="res://scenes/characters/knight/knight.gd" id="1_spyc7"]
@@ -389,14 +389,19 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_h6br4"]
 radius = 7.07107
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_spyc7"]
+radius = 94.3398
+
 [node name="Knight" type="CharacterBody2D"]
 script = ExtResource("1_spyc7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(3, -7)
 sprite_frames = SubResource("SpriteFrames_74qw0")
-animation = &"walk_side_head_down"
+animation = &"walk_side_head_up"
 autoplay = "idle_down"
+
+[node name="HeadTurnTimer" type="Timer" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -5)
@@ -405,6 +410,11 @@ shape = SubResource("CircleShape2D_h6br4")
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 avoidance_enabled = true
 
-[node name="HeadTurnTimer" type="Timer" parent="."]
+[node name="AgroArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AgroArea"]
+shape = SubResource("CircleShape2D_spyc7")
+debug_color = Color(0.925042, 0.273295, 0, 0.42)
 
 [connection signal="timeout" from="HeadTurnTimer" to="." method="_on_head_turn_timer_timeout"]
+[connection signal="body_entered" from="AgroArea" to="." method="_on_agro_area_body_entered"]
