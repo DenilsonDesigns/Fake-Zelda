@@ -20,6 +20,7 @@ var movement_direction := "down"
 
 func _ready() -> void:
 	agro_area.connect("body_entered", _on_agro_area_body_entered)
+	agro_area.connect("body_exited", _on_agro_area_body_exited)
 
 	walk_cycles = randi_range(min_walk_cycle, max_walk_cycle)
 	speed = randf_range(min_speed, max_speed)
@@ -100,7 +101,10 @@ func _on_head_turn_timer_timeout() -> void:
 	head_turn_timer.wait_time = randf_range(2.0, 4.0)
 	head_turn_timer.start()
 
-
 func _on_agro_area_body_entered(body: Node2D) -> void:
 	if body.name == "Link":
 		link = body
+
+func _on_agro_area_body_exited(body: Node2D) -> void:
+	if body == link:
+		link = null

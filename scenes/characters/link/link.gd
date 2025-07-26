@@ -1,6 +1,5 @@
 class_name Link extends CharacterBody2D
 
-# @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 @export var speed: float = 100.0

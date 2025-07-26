@@ -418,3 +418,4 @@ debug_color = Color(0.925042, 0.273295, 0, 0.42)
 
 [connection signal="timeout" from="HeadTurnTimer" to="." method="_on_head_turn_timer_timeout"]
 [connection signal="body_entered" from="AgroArea" to="." method="_on_agro_area_body_entered"]
+[connection signal="body_exited" from="AgroArea" to="." method="_on_agro_area_body_exited"]
