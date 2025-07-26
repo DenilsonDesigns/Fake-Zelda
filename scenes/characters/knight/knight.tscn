@@ -103,14 +103,6 @@ region = Rect2(480, 0, 40, 40)
 atlas = ExtResource("1_h6br4")
 region = Rect2(520, 0, 40, 40)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_h2a1n"]
-atlas = ExtResource("1_h6br4")
-region = Rect2(600, 0, 40, 40)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_d37l2"]
-atlas = ExtResource("1_h6br4")
-region = Rect2(640, 0, 40, 40)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_ino7j"]
 atlas = ExtResource("1_h6br4")
 region = Rect2(720, 0, 40, 40)
@@ -118,6 +110,14 @@ region = Rect2(720, 0, 40, 40)
 [sub_resource type="AtlasTexture" id="AtlasTexture_5desb"]
 atlas = ExtResource("1_h6br4")
 region = Rect2(760, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h2a1n"]
+atlas = ExtResource("1_h6br4")
+region = Rect2(600, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d37l2"]
+atlas = ExtResource("1_h6br4")
+region = Rect2(640, 0, 40, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sbfgk"]
 atlas = ExtResource("1_h6br4")
@@ -332,24 +332,24 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_h2a1n")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_d37l2")
-}],
-"loop": true,
-"name": &"walk_side_head_down",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_ino7j")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_5desb")
 }],
 "loop": true,
-"name": &"walk_side_head_up",
+"name": &"walk_side_head_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h2a1n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d37l2")
+}],
+"loop": true,
+"name": &"walk_side_head_right",
 "speed": 5.0
 }, {
 "frames": [{
@@ -398,7 +398,7 @@ script = ExtResource("1_spyc7")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(3, -7)
 sprite_frames = SubResource("SpriteFrames_74qw0")
-animation = &"walk_down"
+animation = &"idle_down"
 autoplay = "idle_down"
 
 [node name="HeadTurnTimer" type="Timer" parent="."]
