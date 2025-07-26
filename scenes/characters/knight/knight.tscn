@@ -295,7 +295,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk_down",
-"speed": 4.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -398,7 +398,7 @@ script = ExtResource("1_spyc7")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(3, -7)
 sprite_frames = SubResource("SpriteFrames_74qw0")
-animation = &"walk_side_head_up"
+animation = &"walk_down"
 autoplay = "idle_down"
 
 [node name="HeadTurnTimer" type="Timer" parent="."]

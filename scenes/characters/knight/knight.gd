@@ -8,13 +8,11 @@ extends CharacterBody2D
 
 @export var min_walk_cycle: int = 2
 @export var max_walk_cycle: int = 6
-@export var min_speed: float = 10.0
-@export var max_speed: float = 20.0
+@export var speed: float = 20.0
+@export var pursuit_speed_multiplier: float = 1.2 # 20% faster when pursuing
 
 var walk_cycles: int = 0
 var current_walk_cycle: int = 0
-var speed: float = 0.0
-
 var head_direction := ""
 var movement_direction := "down"
 
@@ -23,7 +21,6 @@ func _ready() -> void:
 	agro_area.connect("body_exited", _on_agro_area_body_exited)
 
 	walk_cycles = randi_range(min_walk_cycle, max_walk_cycle)
-	speed = randf_range(min_speed, max_speed)
 	set_movement_target()
 	head_turn_timer.wait_time = randf_range(2.0, 4.0)
 	head_turn_timer.start()
@@ -35,8 +32,9 @@ func _physics_process(_delta: float) -> void:
 		patrol()
 
 func follow_link() -> void:
+	var current_speed = speed * pursuit_speed_multiplier
 	var link_direction = (link.global_position - global_position).normalized()
-	velocity = link_direction * speed
+	velocity = link_direction * current_speed
 	animated_sprite_2d.flip_h = velocity.x < 0
 	move_and_slide()
 	handle_animation()
