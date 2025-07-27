@@ -27,24 +27,24 @@ func _physics_process(_delta: float) -> void:
 func update_animation(dir: Vector2) -> void:
 	if dir == Vector2.ZERO:
 		if abs(last_move_dir.x) > abs(last_move_dir.y):
-			$Sprite2D.flip_h = last_move_dir.x < 0
-			animation_player.play("idle_side")
+			if (last_move_dir.x < 0):
+				animation_player.play("idle_left")
+			else:
+				animation_player.play("idle_right")
 		elif last_move_dir.y > 0:
-			$Sprite2D.flip_h = false
 			animation_player.play("idle_down")
 		else:
-			$Sprite2D.flip_h = false
 			animation_player.play("idle_up")
 		return
 
 	if abs(dir.x) > abs(dir.y):
-		$Sprite2D.flip_h = dir.x < 0
-		animation_player.play("walk_side")
+		if (last_move_dir.x < 0):
+			animation_player.play("walk_left")
+		else:
+			animation_player.play("walk_right")
 	elif dir.y > 0:
-		$Sprite2D.flip_h = false
 		animation_player.play("walk_down")
 	else:
-		$Sprite2D.flip_h = false
 		animation_player.play("walk_up")
 
 
@@ -53,8 +53,10 @@ func play_sword_animation():
 
 	var anim_name := ""
 	if abs(last_move_dir.x) > abs(last_move_dir.y):
-		anim_name = "swing_side"
-		$Sprite2D.flip_h = last_move_dir.x < 0
+		if (last_move_dir.x < 0):
+			anim_name = "swing_left"
+		else:
+			anim_name = "swing_right"
 	elif last_move_dir.y > 0:
 		anim_name = "swing_down"
 	else:
