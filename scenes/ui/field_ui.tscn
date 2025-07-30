@@ -3,6 +3,14 @@
 [ext_resource type="PackedScene" uid="uid://cuhl61csv8odw" path="res://scenes/ui/rupee_counter.tscn" id="1_tlo5r"]
 
 [node name="FieldUi" type="CanvasLayer"]
+scale = Vector2(2.005, 2.005)
+transform = Transform2D(2.005, 0, 0, 2.005, 0, 0)
 
-[node name="RupeeCounter" parent="." instance=ExtResource("1_tlo5r")]
-offset_right = 103.0
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+
+[node name="RupeeCounter" parent="MarginContainer" instance=ExtResource("1_tlo5r")]
+layout_mode = 2

@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://cuhl61csv8odw"]
+[gd_scene load_steps=2 format=3 uid="uid://cuhl61csv8odw"]
+
+[ext_resource type="PackedScene" uid="uid://bh1mh04b02byc" path="res://scenes/ui/rupee_ui.tscn" id="1_begpm"]
 
 [node name="RupeeCounter" type="Control"]
 layout_mode = 3
@@ -6,8 +8,14 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
+[node name="RupeeUi" parent="." instance=ExtResource("1_begpm")]
+position = Vector2(5, 4)
+
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_right = 77.0
-offset_bottom = 23.0
-text = "Rupees 001"
+offset_left = 13.0
+offset_top = -3.0
+offset_right = 40.0
+offset_bottom = 10.0
+theme_override_font_sizes/font_size = 9
+text = " 001"

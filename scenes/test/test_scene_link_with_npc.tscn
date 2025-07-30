@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=4 uid="uid://bgshrw7plo8hr"]
+[gd_scene load_steps=6 format=4 uid="uid://bgshrw7plo8hr"]
 
 [ext_resource type="TileSet" uid="uid://d4gdlnpub70w1" path="res://tile_sets/overworld_tile_set.tres" id="1_5ihas"]
+[ext_resource type="PackedScene" uid="uid://d3ftploqwlpsn" path="res://scenes/ui/field_ui.tscn" id="1_nuui4"]
 [ext_resource type="PackedScene" uid="uid://cr3lxb1hptwds" path="res://scenes/characters/link/link.tscn" id="2_imkia"]
 [ext_resource type="PackedScene" uid="uid://ccr070o0mqvjp" path="res://scenes/characters/knight/knight.tscn" id="3_fbxsn"]
 
@@ -10,6 +11,8 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(474, 117, 474, 366, 721, 364, 716, 113)])
 
 [node name="TestSceneCharNpc" type="Node2D"]
+
+[node name="FieldUi" parent="." instance=ExtResource("1_nuui4")]
 
 [node name="GameTileMap" type="Node2D" parent="."]
 
