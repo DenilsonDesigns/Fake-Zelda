@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cuhl61csv8odw"]
 
-[ext_resource type="PackedScene" uid="uid://bh1mh04b02byc" path="res://scenes/ui/rupee_ui.tscn" id="1_begpm"]
+[ext_resource type="PackedScene" uid="uid://bh1mh04b02byc" path="res://scenes/ui/rupee_ui/rupee_ui.tscn" id="1_begpm"]
 
 [node name="RupeeCounter" type="Control"]
 layout_mode = 3
