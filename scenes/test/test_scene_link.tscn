@@ -27,7 +27,7 @@ tile_set = ExtResource("1_6cceq")
 position = Vector2(355, 291)
 
 [node name="Shrub" parent="." node_paths=PackedStringArray("dead_shrubs_container") instance=ExtResource("3_6cceq")]
-position = Vector2(392, 243)
+position = Vector2(402, 242)
 dead_shrubs_container = NodePath("../DeadShrubs")
 
 [node name="Shrub2" parent="." node_paths=PackedStringArray("dead_shrubs_container") instance=ExtResource("3_6cceq")]
@@ -35,9 +35,16 @@ position = Vector2(420, 242)
 dead_shrubs_container = NodePath("../DeadShrubs")
 
 [node name="Shrub3" parent="." node_paths=PackedStringArray("dead_shrubs_container") instance=ExtResource("3_6cceq")]
-position = Vector2(456, 239)
+position = Vector2(438, 242)
 dead_shrubs_container = NodePath("../DeadShrubs")
 
 [node name="Rupee" parent="." instance=ExtResource("5_rt2kp")]
 position = Vector2(445, 295)
 color = 2
+
+[node name="Rupee2" parent="." instance=ExtResource("5_rt2kp")]
+position = Vector2(460, 295)
+
+[node name="Rupee3" parent="." instance=ExtResource("5_rt2kp")]
+position = Vector2(473, 295)
+color = 1

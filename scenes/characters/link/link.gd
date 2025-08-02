@@ -47,7 +47,6 @@ func update_animation(dir: Vector2) -> void:
 	else:
 		animation_player.play("walk_up")
 
-
 func play_sword_animation():
 	is_attacking = true
 
