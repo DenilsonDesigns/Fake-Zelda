@@ -29,6 +29,7 @@ position = Vector2(355, 291)
 [node name="Shrub" parent="." node_paths=PackedStringArray("dead_shrubs_container") instance=ExtResource("3_6cceq")]
 position = Vector2(402, 242)
 dead_shrubs_container = NodePath("../DeadShrubs")
+rupee_drop_chance = 1.0
 
 [node name="Shrub2" parent="." node_paths=PackedStringArray("dead_shrubs_container") instance=ExtResource("3_6cceq")]
 position = Vector2(420, 242)

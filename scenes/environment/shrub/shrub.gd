@@ -6,6 +6,9 @@ extends StaticBody2D
 @onready var hit_box_shape: CollisionShape2D = $HitBox/HitBoxShape
 
 @export var dead_shrubs_container: Node2D
+@export_range(0.0, 1.0) var rupee_drop_chance: float = 0.25
+
+var RupeeScene := preload("res://scenes/environment/rupee/rupee.tscn")
 
 func _ready() -> void:
 	if not dead_shrubs_container:
@@ -25,6 +28,27 @@ func die():
 	collision_shape_2d.set_deferred("disabled", true)
 	await animated_sprite_2d.animation_finished
 
+	convert_to_dead_shrub()
+
+	handle_rupee_spawn()
+
+func convert_to_dead_shrub() -> void:
 	get_parent().remove_child(self)
 	dead_shrubs_container.add_child(self)
-	global_position = global_position
+
+func handle_rupee_spawn() -> void:
+	if randf() < rupee_drop_chance:
+		var rupee = RupeeScene.instantiate()
+		rupee.color = pick_random_rupee_color()
+		rupee.position = position
+		get_parent().add_child(rupee)
+		rupee.play_spawn_animation()
+
+func pick_random_rupee_color() -> Rupee.RupeeColor:
+	var roll = randi() % 100
+	if roll < 70:
+		return Rupee.RupeeColor.green
+	elif roll < 90:
+		return Rupee.RupeeColor.blue
+	else:
+		return Rupee.RupeeColor.red
