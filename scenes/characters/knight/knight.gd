@@ -148,4 +148,10 @@ func start_invincibility() -> void:
 	invincible = false
 
 func die() -> void:
-	queue_free()
+	set_physics_process(false)
+	set_collision_layer(0)
+	set_collision_mask(0)
+
+	var tween = get_tree().create_tween()
+	tween.tween_property(self, "modulate:a", 0.0, 0.5)
+	tween.tween_callback(queue_free)
