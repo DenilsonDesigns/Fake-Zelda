@@ -11,11 +11,16 @@ extends CharacterBody2D
 @export var speed: float = 20.0
 @export var pursuit_speed_multiplier: float = 1.2
 
+const KNOCKBACK_FORCE = 150.0
+const KNOCKBACK_DURATION = 0.2
+
 var walk_cycles: int = 0
 var current_walk_cycle: int = 0
 var head_direction := ""
 var movement_direction := "down"
 var health := 3
+var invincible = false
+var knockback_timer := 0.0
 
 func _ready() -> void:
 	walk_cycles = randi_range(min_walk_cycle, max_walk_cycle)
@@ -23,7 +28,13 @@ func _ready() -> void:
 	head_turn_timer.wait_time = randf_range(2.0, 4.0)
 	head_turn_timer.start()
 
-func _physics_process(_delta: float) -> void:
+func _physics_process(delta: float) -> void:
+	if knockback_timer > 0:
+		knockback_timer -= delta
+		velocity = velocity.move_toward(Vector2.ZERO, 600 * delta)
+		move_and_slide()
+		return
+
 	if link:
 		follow_link()
 	else:
@@ -86,6 +97,15 @@ func play_idle_animation(dir: String) -> void:
 	if animated_sprite_2d.animation != anim_name:
 		animated_sprite_2d.play(anim_name)
 
+func play_take_damage_animation() -> void:
+	# @NOTE: should replace with an animation_player and an in-editor animation
+	var blink_count = 6
+	for i in blink_count:
+		animated_sprite_2d.visible = false
+		await get_tree().create_timer(0.1).timeout
+		animated_sprite_2d.visible = true
+		await get_tree().create_timer(0.1).timeout
+
 func set_movement_target() -> void:
 	var map_rid = navigation_agent_2d.get_navigation_map()
 	var random_point = NavigationServer2D.map_get_random_point(map_rid, navigation_agent_2d.navigation_layers, false)
@@ -106,14 +126,26 @@ func _on_agro_area_body_exited(body: Node2D) -> void:
 		link = null
 
 func _on_hit_box_area_entered(area: Area2D) -> void:
-	print("area,namme", area.name)
 	if area.name == "SwordHitBox":
-		take_damage(1)
+		take_damage(1, area.global_position)
 
-func take_damage(amount: int) -> void:
+func take_damage(amount: int, from_position: Vector2) -> void:
 	health -= amount
+
+	if invincible: return
+
 	if health <= 0:
 		die()
+
+	start_invincibility()
+	var knockback_vector = (global_position - from_position).normalized() * KNOCKBACK_FORCE
+	velocity += knockback_vector
+	knockback_timer = KNOCKBACK_DURATION
+
+func start_invincibility() -> void:
+	invincible = true
+	await play_take_damage_animation()
+	invincible = false
 
 func die() -> void:
 	queue_free()
