@@ -15,6 +15,7 @@ var walk_cycles: int = 0
 var current_walk_cycle: int = 0
 var head_direction := ""
 var movement_direction := "down"
+var health := 3
 
 func _ready() -> void:
 	walk_cycles = randi_range(min_walk_cycle, max_walk_cycle)
@@ -103,3 +104,16 @@ func _on_agro_area_body_entered(body: Node2D) -> void:
 func _on_agro_area_body_exited(body: Node2D) -> void:
 	if body == link:
 		link = null
+
+func _on_hit_box_area_entered(area: Area2D) -> void:
+	print("area,namme", area.name)
+	if area.name == "SwordHitBox":
+		take_damage(1)
+
+func take_damage(amount: int) -> void:
+	health -= amount
+	if health <= 0:
+		die()
+
+func die() -> void:
+	queue_free()

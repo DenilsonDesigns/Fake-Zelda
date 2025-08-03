@@ -15,7 +15,6 @@ func _ready() -> void:
 		assert(dead_shrubs_container, "dead_shrub_container required")
 		queue_free()
 		return
-	hit_box.connect("area_entered", _on_hit_box_area_entered)
 
 func _on_hit_box_area_entered(area: Area2D) -> void:
 	if area.name == "SwordHitBox":
@@ -29,7 +28,6 @@ func die():
 	await animated_sprite_2d.animation_finished
 
 	convert_to_dead_shrub()
-
 	handle_rupee_spawn()
 
 func convert_to_dead_shrub() -> void:

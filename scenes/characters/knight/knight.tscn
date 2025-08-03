@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://ccr070o0mqvjp"]
+[gd_scene load_steps=42 format=3 uid="uid://ccr070o0mqvjp"]
 
 [ext_resource type="Texture2D" uid="uid://qhrb3apsmt6b" path="res://assets/knight.png" id="1_h6br4"]
 [ext_resource type="Script" uid="uid://bmr3gt6i721ws" path="res://scenes/characters/knight/knight.gd" id="1_spyc7"]
@@ -19,13 +19,13 @@ region = Rect2(160, 0, 40, 40)
 atlas = ExtResource("1_h6br4")
 region = Rect2(480, 0, 40, 40)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xjwxv"]
-atlas = ExtResource("1_h6br4")
-region = Rect2(600, 0, 40, 40)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_grrqw"]
 atlas = ExtResource("1_h6br4")
 region = Rect2(720, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xjwxv"]
+atlas = ExtResource("1_h6br4")
+region = Rect2(600, 0, 40, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_436x1"]
 atlas = ExtResource("1_h6br4")
@@ -179,18 +179,18 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_xjwxv")
+"texture": SubResource("AtlasTexture_grrqw")
 }],
 "loop": true,
-"name": &"idle_side_head_down",
+"name": &"idle_side_head_left",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_grrqw")
+"texture": SubResource("AtlasTexture_xjwxv")
 }],
 "loop": true,
-"name": &"idle_side_head_up",
+"name": &"idle_side_head_right",
 "speed": 5.0
 }, {
 "frames": [{
@@ -392,13 +392,15 @@ radius = 7.07107
 [sub_resource type="CircleShape2D" id="CircleShape2D_spyc7"]
 radius = 94.3398
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_g4sn6"]
+
 [node name="Knight" type="CharacterBody2D"]
 script = ExtResource("1_spyc7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(3, -7)
 sprite_frames = SubResource("SpriteFrames_74qw0")
-animation = &"idle_down"
+animation = &"idle_side_head_left"
 autoplay = "idle_down"
 
 [node name="HeadTurnTimer" type="Timer" parent="."]
@@ -411,11 +413,20 @@ shape = SubResource("CircleShape2D_h6br4")
 avoidance_enabled = true
 
 [node name="AgroArea" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AgroArea"]
 shape = SubResource("CircleShape2D_spyc7")
 debug_color = Color(0.925042, 0.273295, 0, 0.42)
 
+[node name="HitBox" type="Area2D" parent="."]
+
+[node name="HitBoxShape" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(3, -10)
+shape = SubResource("CircleShape2D_g4sn6")
+debug_color = Color(0.897462, 0.166028, 0.663217, 0.42)
+
 [connection signal="timeout" from="HeadTurnTimer" to="." method="_on_head_turn_timer_timeout"]
 [connection signal="body_entered" from="AgroArea" to="." method="_on_agro_area_body_entered"]
 [connection signal="body_exited" from="AgroArea" to="." method="_on_agro_area_body_exited"]
+[connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]
