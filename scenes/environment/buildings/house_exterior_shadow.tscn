@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://t5e76h22i528"]
+
+[ext_resource type="Texture2D" uid="uid://ccgfysugwt68e" path="res://assets/house_outside_shadow.png" id="1_umdyp"]
+
+[node name="ShadowSprite" type="Sprite2D"]
+texture = ExtResource("1_umdyp")
+offset = Vector2(0, 49.35)

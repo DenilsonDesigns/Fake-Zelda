@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://b2t3aw0cql4dn"]
+
+[ext_resource type="Texture2D" uid="uid://c2gg3pdyg2wel" path="res://assets/house_outside.png" id="1_vr74h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vr74h"]
+size = Vector2(95, 86)
+
+[node name="HouseExterior" type="StaticBody2D"]
+y_sort_enabled = true
+
+[node name="HouseSprite" type="Sprite2D" parent="."]
+position = Vector2(3, -49)
+texture = ExtResource("1_vr74h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -46)
+shape = SubResource("RectangleShape2D_vr74h")
