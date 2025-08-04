@@ -11,6 +11,7 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(474, 117, 474, 366, 721, 364, 716, 113)])
 
 [node name="TestSceneCharNpc" type="Node2D"]
+y_sort_enabled = true
 
 [node name="FieldUi" parent="." instance=ExtResource("1_nuui4")]
 

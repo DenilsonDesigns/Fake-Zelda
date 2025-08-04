@@ -395,6 +395,7 @@ radius = 94.3398
 [sub_resource type="CircleShape2D" id="CircleShape2D_g4sn6"]
 
 [node name="Knight" type="CharacterBody2D"]
+y_sort_enabled = true
 script = ExtResource("1_spyc7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

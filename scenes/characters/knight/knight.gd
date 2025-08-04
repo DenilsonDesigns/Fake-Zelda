@@ -9,10 +9,11 @@ extends CharacterBody2D
 @export var min_walk_cycle: int = 2
 @export var max_walk_cycle: int = 6
 @export var speed: float = 20.0
-@export var pursuit_speed_multiplier: float = 1.2
+@export var pursuit_speed_multiplier: float = 1.3
 
 const KNOCKBACK_FORCE = 150.0
 const KNOCKBACK_DURATION = 0.2
+const MIN_FOLLOW_DISTANCE = 18.0
 
 var walk_cycles: int = 0
 var current_walk_cycle: int = 0
@@ -36,15 +37,24 @@ func _physics_process(delta: float) -> void:
 		return
 
 	if link:
-		follow_link()
+		follow_link(link.global_position)
 	else:
 		patrol()
 
-func follow_link() -> void:
-	var current_speed = speed * pursuit_speed_multiplier
-	var link_direction = (link.global_position - global_position).normalized()
-	velocity = link_direction * current_speed
-	animated_sprite_2d.flip_h = velocity.x < 0
+func follow_link(link_position: Vector2) -> void:
+	if knockback_timer > 0:
+		return 
+
+	var direction_to_link = link_position - global_position
+	var distance_from_link = direction_to_link.length()
+
+	if direction_to_link.length() > MIN_FOLLOW_DISTANCE:
+		velocity = direction_to_link.normalized() * speed * pursuit_speed_multiplier
+	elif distance_from_link < MIN_FOLLOW_DISTANCE * 0.8:
+		velocity = - direction_to_link.normalized() * (speed * 0.5)
+	else:
+		velocity = Vector2.ZERO
+
 	move_and_slide()
 	handle_animation()
 
@@ -73,6 +83,8 @@ func patrol() -> void:
 		play_idle_animation(movement_direction)
 
 func handle_animation() -> void:
+	animated_sprite_2d.flip_h = velocity.x < 0
+
 	if velocity.length() > 0.1:
 		movement_direction = get_movement_direction(velocity)
 		play_walk_animation(movement_direction)
