@@ -1,0 +1,67 @@
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://b8ujobp3q4xdc"]
+
+[ext_resource type="Texture2D" uid="uid://h54rlcnsniuv" path="res://assets/walls_floors.png" id="1_08hmr"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_crjd7"]
+texture = ExtResource("1_08hmr")
+texture_region_size = Vector2i(8, 8)
+7:3/0 = 0
+7:4/0 = 0
+7:5/0 = 0
+6:5/0 = 0
+5:5/0 = 0
+4:5/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+3:6/0 = 0
+2:6/0 = 0
+1:6/0 = 0
+0:6/0 = 0
+0:5/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:4/0 = 0
+3:4/0 = 0
+3:5/0 = 0
+2:5/0 = 0
+1:5/0 = 0
+2:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:2/0 = 0
+7:1/0 = 0
+7:0/0 = 0
+6:0/0 = 0
+6:1/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+1:2/0 = 0
+0:2/0 = 0
+1:1/0 = 0
+0:1/0 = 0
+1:0/0 = 0
+0:0/0 = 0
+3:0/0 = 0
+2:0/0 = 0
+3:1/0 = 0
+2:1/0 = 0
+4:1/0 = 0
+4:0/0 = 0
+5:1/0 = 0
+5:0/0 = 0
+5:3/0 = 0
+5:2/0 = 0
+4:3/0 = 0
+4:2/0 = 0
+6:3/0 = 0
+6:2/0 = 0
+
+[resource]
+tile_size = Vector2i(8, 8)
+terrain_set_0/mode = 0
+terrain_set_0/terrain_0/name = "Walls"
+terrain_set_0/terrain_0/color = Color(0.545366, 0.281171, 0.43539, 1)
+terrain_set_0/terrain_1/name = "Floors"
+terrain_set_0/terrain_1/color = Color(0.5, 0.4375, 0.25, 1)
+terrain_set_1/mode = 0
+sources/0 = SubResource("TileSetAtlasSource_crjd7")
