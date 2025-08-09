@@ -1,0 +1,16 @@
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://wn5kumw0x17n"]
+
+[ext_resource type="Texture2D" uid="uid://belfb8bv3mhwt" path="res://assets/wood_floors.png" id="1_heiru"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_heiru"]
+texture = ExtResource("1_heiru")
+texture_region_size = Vector2i(16, 15)
+0:0/0 = 0
+
+[resource]
+tile_size = Vector2i(16, 14)
+physics_layer_0/collision_layer = 1
+terrain_set_0/mode = 0
+terrain_set_0/terrain_0/name = "Wood"
+terrain_set_0/terrain_0/color = Color(0.137939, 0.423294, 0.506208, 1)
+sources/1 = SubResource("TileSetAtlasSource_heiru")
