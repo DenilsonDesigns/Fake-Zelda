@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=4 uid="uid://dt820oenppk8k"]
+[gd_scene load_steps=6 format=4 uid="uid://dt820oenppk8k"]
 
 [ext_resource type="TileSet" uid="uid://bj4v3edi5hids" path="res://tile_sets/furniture.tres" id="1_idsbi"]
 [ext_resource type="TileSet" uid="uid://wn5kumw0x17n" path="res://tile_sets/wood_floors.tres" id="2_sbxgl"]
 [ext_resource type="TileSet" uid="uid://b8ujobp3q4xdc" path="res://tile_sets/interior_walls_floors.tres" id="3_la2ki"]
 [ext_resource type="TileSet" uid="uid://byi0kxxrkcyh1" path="res://tile_sets/wall_adornments.tres" id="4_784cq"]
+
+[sub_resource type="TileSet" id="TileSet_idsbi"]
 
 [node name="HouseInterior" type="Node2D"]
 y_sort_enabled = true
@@ -31,3 +33,7 @@ tile_set = ExtResource("3_la2ki")
 position = Vector2(-0.424103, 2.96867)
 tile_map_data = PackedByteArray("AAD2//v/AwAAAAAAAAD//wMAAwADAAAAAAAEAPv/AwAAAAAAAAAPAPz/AwACAAAAAAAPAAAAAwACAAAAAAA=")
 tile_set = ExtResource("4_784cq")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="TileMaps"]
+tile_set = SubResource("TileSet_idsbi")
+use_kinematic_bodies = true
