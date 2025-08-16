@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dw8l6u76rn6hv"]
+
+[ext_resource type="PackedScene" uid="uid://dt820oenppk8k" path="res://scenes/environment/buildings/house_interior.tscn" id="1_36sil"]
+
+[node name="TestSceneHouseInterior" type="Node2D"]
+y_sort_enabled = true
+
+[node name="HouseInterior" parent="." instance=ExtResource("1_36sil")]
+transition_scene = "uid://cg8n7unybiqcx"
