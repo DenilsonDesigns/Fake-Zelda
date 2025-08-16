@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=4 uid="uid://dt820oenppk8k"]
+[gd_scene load_steps=7 format=4 uid="uid://dt820oenppk8k"]
 
 [ext_resource type="TileSet" uid="uid://bj4v3edi5hids" path="res://tile_sets/furniture.tres" id="1_idsbi"]
 [ext_resource type="TileSet" uid="uid://wn5kumw0x17n" path="res://tile_sets/wood_floors.tres" id="2_sbxgl"]
 [ext_resource type="TileSet" uid="uid://b8ujobp3q4xdc" path="res://tile_sets/interior_walls_floors.tres" id="3_la2ki"]
 [ext_resource type="TileSet" uid="uid://byi0kxxrkcyh1" path="res://tile_sets/wall_adornments.tres" id="4_784cq"]
+[ext_resource type="PackedScene" uid="uid://c4f35xjmvmut2" path="res://scenes/environment/transition_door/transition_door.tscn" id="5_sbxgl"]
 
 [sub_resource type="TileSet" id="TileSet_idsbi"]
 
@@ -37,3 +38,13 @@ tile_set = ExtResource("4_784cq")
 [node name="TileMapLayer" type="TileMapLayer" parent="TileMaps"]
 tile_set = SubResource("TileSet_idsbi")
 use_kinematic_bodies = true
+
+[node name="TransitionDoor" parent="." instance=ExtResource("5_sbxgl")]
+
+[node name="CollisionShape2D" parent="TransitionDoor" index="0"]
+position = Vector2(0, 59)
+
+[node name="DropPoint" parent="TransitionDoor" index="1"]
+position = Vector2(0, 35.2001)
+
+[editable path="TransitionDoor"]

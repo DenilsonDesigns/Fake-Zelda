@@ -6,6 +6,7 @@ class_name Link extends CharacterBody2D
 
 var last_move_dir: Vector2 = Vector2.DOWN
 var is_attacking: bool = false
+var last_door_connection := -1
 
 func _physics_process(_delta: float) -> void:
 	var input_vector = Vector2(
@@ -64,3 +65,15 @@ func play_sword_animation():
 	animation_player.play(anim_name)
 	await animation_player.animation_finished
 	is_attacking = false
+
+func go_to_new_area(new_area_path: String) -> void:
+	# @NOTE: would add transitions/music here
+	LevelSwapper.level_swap(self, new_area_path)
+
+func _on_transition_door_detector_area_entered(transition_door: TransitionDoor) -> void:
+	if not transition_door is TransitionDoor: return
+	if transition_door.new_area.is_empty(): return
+
+	last_door_connection = transition_door.connection
+	
+	call_deferred("go_to_new_area", transition_door.new_area)

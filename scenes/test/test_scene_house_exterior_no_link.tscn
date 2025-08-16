@@ -22,7 +22,12 @@ tile_set = ExtResource("2_so2a0")
 
 [node name="HouseExterior" parent="." instance=ExtResource("3_8fe48")]
 position = Vector2(530, 269)
-transition_scene = ""
+
+[node name="TransitionDoor" parent="HouseExterior" index="2"]
+new_area = "uid://dc7cy8scniw8n"
 
 [node name="ShadowSprite" parent="." instance=ExtResource("4_wob3m")]
 position = Vector2(578, 169)
+
+[editable path="HouseExterior"]
+[editable path="HouseExterior/TransitionDoor"]

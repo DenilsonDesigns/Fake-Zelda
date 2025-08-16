@@ -1,12 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://dc7cy8scniw8n"]
+[gd_scene load_steps=2 format=3 uid="uid://dc7cy8scniw8n"]
 
 [ext_resource type="PackedScene" uid="uid://dt820oenppk8k" path="res://scenes/environment/buildings/house_interior.tscn" id="1_bj3id"]
-[ext_resource type="PackedScene" uid="uid://cr3lxb1hptwds" path="res://scenes/characters/link/link.tscn" id="5_nng8k"]
 
 [node name="TestSceneHouseInterior" type="Node2D"]
 y_sort_enabled = true
 
 [node name="HouseInterior" parent="." instance=ExtResource("1_bj3id")]
 
-[node name="Link" parent="." instance=ExtResource("5_nng8k")]
-position = Vector2(-60.4211, 21.8947)
+[node name="TransitionDoor" parent="HouseInterior" index="2"]
+new_area = "uid://cg8n7unybiqcx"
+
+[editable path="HouseInterior"]
+[editable path="HouseInterior/TransitionDoor"]
