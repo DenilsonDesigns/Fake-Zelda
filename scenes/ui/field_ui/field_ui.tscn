@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://d3ftploqwlpsn"]
 
-[ext_resource type="PackedScene" uid="uid://cuhl61csv8odw" path="res://scenes/ui/rupee_counter.tscn" id="1_tlo5r"]
-[ext_resource type="Script" uid="uid://bsti5fbsik74u" path="res://scenes/ui/field_ui.gd" id="1_v65iw"]
+[ext_resource type="PackedScene" uid="uid://cuhl61csv8odw" path="res://scenes/ui/rupee_counter/rupee_counter.tscn" id="1_tlo5r"]
+[ext_resource type="Script" uid="uid://bsti5fbsik74u" path="res://scenes/ui/field_ui/field_ui.gd" id="1_v65iw"]
 
 [node name="FieldUi" type="CanvasLayer"]
 scale = Vector2(2.005, 2.005)

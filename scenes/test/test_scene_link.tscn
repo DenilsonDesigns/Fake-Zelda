@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=4 uid="uid://ble3u5qhmrldi"]
 
 [ext_resource type="TileSet" uid="uid://d4gdlnpub70w1" path="res://tile_sets/overworld_tile_set.tres" id="1_6cceq"]
-[ext_resource type="PackedScene" uid="uid://d3ftploqwlpsn" path="res://scenes/ui/field_ui.tscn" id="1_8g5ua"]
+[ext_resource type="PackedScene" uid="uid://d3ftploqwlpsn" path="res://scenes/ui/field_ui/field_ui.tscn" id="1_8g5ua"]
 [ext_resource type="PackedScene" uid="uid://cr3lxb1hptwds" path="res://scenes/characters/link/link.tscn" id="2_8g5ua"]
 [ext_resource type="PackedScene" uid="uid://dxuwyf82cs87g" path="res://scenes/environment/shrub/shrub.tscn" id="3_6cceq"]
 [ext_resource type="PackedScene" uid="uid://s301d1o57mbm" path="res://scenes/environment/rupee/rupee.tscn" id="5_rt2kp"]

@@ -3,7 +3,7 @@
 [ext_resource type="TileSet" uid="uid://gg58088al5i8" path="res://tile_sets/grass.tres" id="1_7svsl"]
 [ext_resource type="TileSet" uid="uid://dperr1ec8lhfb" path="res://tile_sets/dirt.tres" id="2_vlew3"]
 [ext_resource type="PackedScene" uid="uid://cr3lxb1hptwds" path="res://scenes/characters/link/link.tscn" id="3_xu052"]
-[ext_resource type="PackedScene" uid="uid://d3ftploqwlpsn" path="res://scenes/ui/field_ui.tscn" id="4_vds2a"]
+[ext_resource type="PackedScene" uid="uid://d3ftploqwlpsn" path="res://scenes/ui/field_ui/field_ui.tscn" id="4_vds2a"]
 
 [node name="TileMapLayers" type="Node2D"]
 

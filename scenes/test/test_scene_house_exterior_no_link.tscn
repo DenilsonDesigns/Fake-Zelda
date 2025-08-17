@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=4 uid="uid://cg8n7unybiqcx"]
 
-[ext_resource type="PackedScene" uid="uid://d3ftploqwlpsn" path="res://scenes/ui/field_ui.tscn" id="1_a3gag"]
+[ext_resource type="PackedScene" uid="uid://d3ftploqwlpsn" path="res://scenes/ui/field_ui/field_ui.tscn" id="1_a3gag"]
 [ext_resource type="TileSet" uid="uid://d4gdlnpub70w1" path="res://tile_sets/overworld_tile_set.tres" id="2_so2a0"]
 [ext_resource type="PackedScene" uid="uid://b2t3aw0cql4dn" path="res://scenes/environment/buildings/house_exterior.tscn" id="3_8fe48"]
 [ext_resource type="PackedScene" uid="uid://t5e76h22i528" path="res://scenes/environment/buildings/house_exterior_shadow.tscn" id="4_wob3m"]
