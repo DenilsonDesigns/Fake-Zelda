@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://bm0gucsvjp143"]
+
+[ext_resource type="Script" uid="uid://bc70ldoow2kyt" path="res://scenes/ui/title_screen/title_screen.gd" id="1_62kf1"]
+
+[node name="TitleScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_62kf1")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MenuContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="NewGameButton" type="Button" parent="MenuContainer"]
+layout_mode = 2
+text = "New Game"
+
+[node name="QuitButton" type="Button" parent="MenuContainer"]
+layout_mode = 2
+text = "Quit"

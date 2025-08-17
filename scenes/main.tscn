@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cphw5sfd4hcfg"]
 
 [ext_resource type="Script" uid="uid://bnuadsrwka6mc" path="res://scenes/main.gd" id="1_o5qli"]
-[ext_resource type="PackedScene" uid="uid://bim5t3yi751j1" path="res://scenes/test/test_scene_house_exterior.tscn" id="2_0wfyh"]
+[ext_resource type="PackedScene" uid="uid://bm0gucsvjp143" path="res://scenes/ui/title_screen/title_screen.tscn" id="2_0wfyh"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_o5qli")
