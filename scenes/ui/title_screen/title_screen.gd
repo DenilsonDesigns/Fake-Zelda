@@ -2,6 +2,8 @@ class_name TitleScreen extends Control
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
+signal start_game
+
 var sparkle_anims := [
 	"sparkle_bottom_left",
 	"sparkle_bottom_right",
@@ -32,3 +34,8 @@ func _play_random_sparkle() -> void:
 
 func _on_sparkle_finished() -> void:
 	_play_random_sparkle()
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventKey and event.is_pressed() and not event.is_echo():
+		if event.keycode == KEY_SPACE:
+			emit_signal("start_game")
