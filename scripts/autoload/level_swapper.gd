@@ -1,6 +1,5 @@
 extends Node
 
-
 var link: Link
 
 func level_swap(link_to_stash: Link, new_level_string: String) -> void:

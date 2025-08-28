@@ -6,5 +6,6 @@
 [node name="Main" type="Node"]
 script = ExtResource("1_o5qli")
 startup_scene = ExtResource("2_0wfyh")
+first_gameplay_scene = "uid://bim5t3yi751j1"
 
 [node name="CurrentScreen" type="Node" parent="."]
