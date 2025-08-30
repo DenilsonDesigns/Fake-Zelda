@@ -7,6 +7,7 @@ class_name Link extends CharacterBody2D
 var last_move_dir: Vector2 = Vector2.DOWN
 var is_attacking: bool = false
 var last_door_connection := -1
+var door_cooldown :bool = false
 
 func _physics_process(_delta: float) -> void:
 	var input_vector = Vector2(
@@ -71,9 +72,16 @@ func go_to_new_area(new_area_path: String) -> void:
 	LevelSwapper.level_swap(self, new_area_path)
 
 func _on_transition_door_detector_area_entered(transition_door: TransitionDoor) -> void:
+	if door_cooldown: return
+
 	if not transition_door is TransitionDoor: return
 	if transition_door.new_area.is_empty(): return
 
 	last_door_connection = transition_door.connection
-	
+	door_cooldown = true
+
 	call_deferred("go_to_new_area", transition_door.new_area)
+
+func reset_door_cooldown() -> void:
+	await get_tree().create_timer(0.5).timeout
+	door_cooldown = false

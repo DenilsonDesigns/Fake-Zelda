@@ -9,6 +9,7 @@ y_sort_enabled = true
 
 [node name="TransitionDoor" parent="HouseInterior" index="2"]
 new_area = "uid://cg8n7unybiqcx"
+connection = 32
 
 [editable path="HouseInterior"]
 [editable path="HouseInterior/TransitionDoor"]
