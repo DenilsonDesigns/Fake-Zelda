@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=4 uid="uid://coqramf2v65r0"]
+[gd_scene load_steps=9 format=4 uid="uid://coqramf2v65r0"]
 
 [ext_resource type="TileSet" uid="uid://d4gdlnpub70w1" path="res://tile_sets/overworld_tile_set.tres" id="1_c3d33"]
 [ext_resource type="PackedScene" uid="uid://d3ftploqwlpsn" path="res://scenes/ui/field_ui/field_ui.tscn" id="1_l7h5l"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://cr3lxb1hptwds" path="res://scenes/characters/link/link.tscn" id="2_tbicr"]
 [ext_resource type="PackedScene" uid="uid://b2t3aw0cql4dn" path="res://scenes/environment/buildings/house_exterior.tscn" id="4_id15u"]
 [ext_resource type="PackedScene" uid="uid://t5e76h22i528" path="res://scenes/environment/buildings/house_exterior_shadow.tscn" id="5_uhu12"]
+[ext_resource type="PackedScene" uid="uid://dxuwyf82cs87g" path="res://scenes/environment/shrub/shrub.tscn" id="7_uhu12"]
+[ext_resource type="PackedScene" uid="uid://s301d1o57mbm" path="res://scenes/environment/rupee/rupee.tscn" id="7_xr8og"]
 
 [node name="Overworld" type="Node2D"]
 
@@ -30,6 +32,25 @@ new_area = "uid://bf3xkoafurqvg"
 
 [node name="ShadowSprite" parent="." instance=ExtResource("5_uhu12")]
 position = Vector2(577.878, 171.662)
+
+[node name="DeadShrubs" type="Node2D" parent="."]
+
+[node name="Shrub" parent="." node_paths=PackedStringArray("dead_shrubs_container") instance=ExtResource("7_uhu12")]
+position = Vector2(402, 242)
+dead_shrubs_container = NodePath("../DeadShrubs")
+rupee_drop_chance = 1.0
+
+[node name="Shrub2" parent="." node_paths=PackedStringArray("dead_shrubs_container") instance=ExtResource("7_uhu12")]
+position = Vector2(420, 242)
+dead_shrubs_container = NodePath("../DeadShrubs")
+
+[node name="Shrub3" parent="." node_paths=PackedStringArray("dead_shrubs_container") instance=ExtResource("7_uhu12")]
+position = Vector2(438, 242)
+dead_shrubs_container = NodePath("../DeadShrubs")
+
+[node name="Rupee" parent="." instance=ExtResource("7_xr8og")]
+position = Vector2(370.359, 247.925)
+color = 2
 
 [node name="Link" parent="." instance=ExtResource("2_tbicr")]
 position = Vector2(546, 530)

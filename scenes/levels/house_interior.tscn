@@ -1,9 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://bf3xkoafurqvg"]
+[gd_scene load_steps=3 format=3 uid="uid://bf3xkoafurqvg"]
 
+[ext_resource type="PackedScene" uid="uid://d3ftploqwlpsn" path="res://scenes/ui/field_ui/field_ui.tscn" id="1_bqanp"]
 [ext_resource type="PackedScene" uid="uid://dt820oenppk8k" path="res://scenes/environment/buildings/house_interior.tscn" id="1_jgtge"]
 
 [node name="TestSceneHouseInterior" type="Node2D"]
 y_sort_enabled = true
+
+[node name="FieldUi" parent="." instance=ExtResource("1_bqanp")]
 
 [node name="HouseInterior" parent="." instance=ExtResource("1_jgtge")]
 
