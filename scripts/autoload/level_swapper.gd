@@ -28,6 +28,5 @@ func drop_link() -> void:
 
 func remove_existing_link(parent: Node) -> void:
 	var existing_link := parent.get_node_or_null("Link")
-	print("existing_link", existing_link)
 	if existing_link:
 		parent.remove_child(existing_link)

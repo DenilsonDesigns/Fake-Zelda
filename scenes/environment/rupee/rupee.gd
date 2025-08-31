@@ -1,4 +1,4 @@
-class_name Rupee extends Area2D
+class_name Rupee extends PersistableObject
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
@@ -7,8 +7,10 @@ class_name Rupee extends Area2D
 enum RupeeColor {green, blue, red}
 
 func _ready() -> void:
-	play_shine_animation()
-	connect("body_entered", _on_body_entered)
+	super._ready()
+
+	if not GameState.is_object_flagged(_resolved_id):
+		play_shine_animation()
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == "Link":
@@ -24,7 +26,7 @@ func _on_body_entered(body: Node2D) -> void:
 				value = 0
 
 		GameState.add_rupees(value)
-		queue_free()
+		mark_persisted()
 
 func play_spawn_animation() -> void:
 	animation_player.play("spawn_from_drop_" + rupee_color())
