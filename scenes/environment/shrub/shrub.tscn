@@ -49,6 +49,14 @@ animations = [{
 "loop": false,
 "name": &"destroy",
 "speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cbbnk")
+}],
+"loop": false,
+"name": &"shrub_stub",
+"speed": 10.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_abapo"]
@@ -63,7 +71,7 @@ script = ExtResource("1_abapo")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_sfcqw")
-animation = &"destroy"
+animation = &"shrub_stub"
 autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

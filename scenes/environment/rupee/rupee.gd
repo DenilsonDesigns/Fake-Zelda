@@ -26,7 +26,7 @@ func _on_body_entered(body: Node2D) -> void:
 				value = 0
 
 		GameState.add_rupees(value)
-		mark_persisted()
+		mark_persisted_and_queue_free()
 
 func play_spawn_animation() -> void:
 	animation_player.play("spawn_from_drop_" + rupee_color())

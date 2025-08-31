@@ -11,6 +11,7 @@ class_name Shrub extends PersistableObject
 var RupeeScene := preload("res://scenes/environment/rupee/rupee.tscn")
 
 func _ready() -> void:
+	super._ready()
 	if not dead_shrubs_container:
 		assert(dead_shrubs_container, "dead_shrub_container required")
 		queue_free()
@@ -28,11 +29,21 @@ func die():
 	await animated_sprite_2d.animation_finished
 
 	convert_to_dead_shrub()
+	mark_persisted()
 	handle_rupee_spawn()
+
+func _on_already_flagged() -> void:
+	convert_to_dead_shrub()
+
+	animated_sprite_2d.play("shrub_stub")
+	hit_box_shape.disabled = true
+	hit_box.set_deferred("monitoring", false)
+	collision_shape_2d.set_deferred("disabled", true)
 
 func convert_to_dead_shrub() -> void:
 	get_parent().remove_child(self)
 	dead_shrubs_container.add_child(self)
+	owner = get_tree().current_scene
 
 func handle_rupee_spawn() -> void:
 	if randf() < rupee_drop_chance:
