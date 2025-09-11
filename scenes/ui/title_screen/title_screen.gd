@@ -1,6 +1,7 @@
 class_name TitleScreen extends Control
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var sword_sprite: AnimatedSprite2D = $MenuContainer/SwordSprite
 
 signal start_game
 
@@ -10,7 +11,6 @@ var sparkle_anims := [
 	"sparkle_top_right",
 	"sparkle_top_left"
 ]
-
 var last_sparkle: String = ""
 
 func _ready() -> void:
