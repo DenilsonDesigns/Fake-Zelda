@@ -451,6 +451,7 @@ size_flags_vertical = 0
 [node name="SwordSprite" type="AnimatedSprite2D" parent="MenuContainer/SwordContainer"]
 position = Vector2(3.00004, 0)
 sprite_frames = SubResource("SpriteFrames_31m8g")
+autoplay = "default"
 frame_progress = 0.590308
 offset = Vector2(0, 16)
 
