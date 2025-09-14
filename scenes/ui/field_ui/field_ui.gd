@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-@onready var rupee_counter: Node = $MarginContainer/RupeeCounter
+@onready var rupee_counter: Node = $ElementsContainer/RupeeContainer/RupeeCounter
 
 func _ready():
 	GameState.rupee_balance_changed.connect(_on_rupee_changed)
