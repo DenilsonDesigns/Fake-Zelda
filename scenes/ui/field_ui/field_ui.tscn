@@ -12,7 +12,7 @@ transform = Transform2D(2.005, 0, 0, 2.005, 0, 0)
 script = ExtResource("1_v65iw")
 
 [node name="ElementsContainer" type="HBoxContainer" parent="."]
-offset_right = 147.0
+offset_right = 99.0
 offset_bottom = 52.0
 size_flags_horizontal = 0
 alignment = 1
