@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://bymy51ujcr1ed"]
+
+[ext_resource type="Script" uid="uid://6vphr5ul5e7x" path="res://scenes/ui/heart_ui/heart_row.gd" id="1_g6w3d"]
+[ext_resource type="PackedScene" uid="uid://bjwur1ncmy354" path="res://scenes/ui/heart_ui/life_bar_heart.tscn" id="2_ngrqy"]
+
+[node name="HeartRow" type="HBoxContainer"]
+script = ExtResource("1_g6w3d")
+heart_scene = ExtResource("2_ngrqy")

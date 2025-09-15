@@ -1,14 +1,14 @@
 [gd_scene load_steps=6 format=3 uid="uid://bjwur1ncmy354"]
 
-[ext_resource type="Texture2D" uid="uid://b42ep3kfdbfhj" path="res://assets/hearts_ui.png" id="1_0k2i6"]
-[ext_resource type="Script" uid="uid://bs28p1utx8lwv" path="res://scenes/ui/field_ui/life_bar_heart.gd" id="2_he30c"]
+[ext_resource type="Script" uid="uid://bs28p1utx8lwv" path="res://scenes/ui/heart_ui/life_bar_heart.gd" id="1_3dhtr"]
+[ext_resource type="Texture2D" uid="uid://b42ep3kfdbfhj" path="res://assets/hearts_ui.png" id="2_hbwy5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0k2i6"]
-atlas = ExtResource("1_0k2i6")
+atlas = ExtResource("2_hbwy5")
 region = Rect2(7, 0, 7, 8)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_he30c"]
-atlas = ExtResource("1_0k2i6")
+atlas = ExtResource("2_hbwy5")
 region = Rect2(0, 0, 7, 8)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_x7a1t"]
@@ -36,7 +36,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 8.0
 offset_bottom = 8.0
-script = ExtResource("2_he30c")
+script = ExtResource("1_3dhtr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(4, 4)

@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://d3ftploqwlpsn"]
+[gd_scene load_steps=5 format=3 uid="uid://d3ftploqwlpsn"]
 
 [ext_resource type="PackedScene" uid="uid://cuhl61csv8odw" path="res://scenes/ui/rupee_counter/rupee_counter.tscn" id="1_tlo5r"]
 [ext_resource type="Script" uid="uid://bsti5fbsik74u" path="res://scenes/ui/field_ui/field_ui.gd" id="1_v65iw"]
 [ext_resource type="Texture2D" uid="uid://c4ex8fey756sm" path="res://assets/life_menu_title.png" id="3_deupj"]
-[ext_resource type="Script" uid="uid://6vphr5ul5e7x" path="res://scenes/ui/field_ui/heart_row.gd" id="4_exlnf"]
-[ext_resource type="PackedScene" uid="uid://bjwur1ncmy354" path="res://scenes/ui/field_ui/life_bar_heart.tscn" id="5_pak0w"]
+[ext_resource type="PackedScene" uid="uid://bymy51ujcr1ed" path="res://scenes/ui/heart_ui/heart_row.tscn" id="4_exlnf"]
 
 [node name="FieldUi" type="CanvasLayer"]
 scale = Vector2(2.005, 2.005)
@@ -36,7 +35,5 @@ layout_mode = 2
 texture = ExtResource("3_deupj")
 stretch_mode = 2
 
-[node name="HeartRow" type="HBoxContainer" parent="ElementsContainer/LifeBarContainer/VBoxContainer"]
+[node name="HeartRow" parent="ElementsContainer/LifeBarContainer/VBoxContainer" instance=ExtResource("4_exlnf")]
 layout_mode = 2
-script = ExtResource("4_exlnf")
-heart_scene = ExtResource("5_pak0w")
