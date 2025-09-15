@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://ccr070o0mqvjp"]
+[gd_scene load_steps=43 format=3 uid="uid://ccr070o0mqvjp"]
 
 [ext_resource type="Texture2D" uid="uid://qhrb3apsmt6b" path="res://assets/knight.png" id="1_h6br4"]
 [ext_resource type="Script" uid="uid://bmr3gt6i721ws" path="res://scenes/characters/knight/knight.gd" id="1_spyc7"]
@@ -394,6 +394,9 @@ radius = 94.3398
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g4sn6"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_spyc7"]
+size = Vector2(11, 5)
+
 [node name="Knight" type="CharacterBody2D"]
 y_sort_enabled = true
 script = ExtResource("1_spyc7")
@@ -426,6 +429,14 @@ debug_color = Color(0.925042, 0.273295, 0, 0.42)
 position = Vector2(3, -10)
 shape = SubResource("CircleShape2D_g4sn6")
 debug_color = Color(0.897462, 0.166028, 0.663217, 0.42)
+
+[node name="HurtBox" type="Area2D" parent="."]
+monitoring = false
+
+[node name="HurtBoxShape" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(13.5, -2.5)
+shape = SubResource("RectangleShape2D_spyc7")
+debug_color = Color(0.955531, 0.212512, 1.92523e-07, 0.42)
 
 [connection signal="timeout" from="HeadTurnTimer" to="." method="_on_head_turn_timer_timeout"]
 [connection signal="body_entered" from="AgroArea" to="." method="_on_agro_area_body_entered"]
