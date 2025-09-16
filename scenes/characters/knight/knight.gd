@@ -1,16 +1,15 @@
 extends CharacterBody2D
 
-@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
 @onready var head_turn_timer: Timer = $HeadTurnTimer
 @onready var agro_area: Area2D = $AgroArea
 @onready var link: Node2D = null
-
 @export var min_walk_cycle: int = 2
 @export var max_walk_cycle: int = 6
 @export var speed: float = 20.0
 @export var pursuit_speed_multiplier: float = 1.3
-
 const KNOCKBACK_FORCE = 150.0
 const KNOCKBACK_DURATION = 0.2
 const MIN_FOLLOW_DISTANCE = 18.0
@@ -72,7 +71,7 @@ func patrol() -> void:
 	
 	velocity = direction * speed
 	
-	animated_sprite_2d.flip_h = velocity.x < 0
+	sprite_2d.flip_h = velocity.x < 0
 	move_and_slide()
 
 	navigation_agent_2d.velocity = velocity
@@ -83,7 +82,7 @@ func patrol() -> void:
 		play_idle_animation(movement_direction)
 
 func handle_animation() -> void:
-	animated_sprite_2d.flip_h = velocity.x < 0
+	sprite_2d.flip_h = velocity.x < 0
 
 	if velocity.length() > 0.1:
 		movement_direction = get_movement_direction(velocity)
@@ -101,21 +100,20 @@ func get_movement_direction(vel: Vector2) -> String:
 
 func play_walk_animation(dir: String) -> void:
 	var anim_name = "walk_" + dir + head_direction
-	if animated_sprite_2d.animation != anim_name:
-		animated_sprite_2d.play(anim_name)
+	if animation_player.current_animation != anim_name:
+		animation_player.play(anim_name)
 
 func play_idle_animation(dir: String) -> void:
 	var anim_name = "idle_" + dir + head_direction
-	if animated_sprite_2d.animation != anim_name:
-		animated_sprite_2d.play(anim_name)
+	if animation_player.current_animation != anim_name:
+		animation_player.play(anim_name)
 
 func play_take_damage_animation() -> void:
-	# @NOTE: should replace with an animation_player and an in-editor animation
 	var blink_count = 6
 	for i in blink_count:
-		animated_sprite_2d.visible = false
+		animation_player.visible = false
 		await get_tree().create_timer(0.1).timeout
-		animated_sprite_2d.visible = true
+		animation_player.visible = true
 		await get_tree().create_timer(0.1).timeout
 
 func set_movement_target() -> void:

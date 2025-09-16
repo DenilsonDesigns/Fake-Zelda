@@ -434,8 +434,8 @@ shape = SubResource("CircleShape2D_qa66e")
 [node name="SwordHitBox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SwordHitBox"]
-position = Vector2(-1.50839, 2.50812)
-rotation = 2.66761
+position = Vector2(-7, -16)
+rotation = 1.20003
 shape = SubResource("RectangleShape2D_qa66e")
 disabled = true
 debug_color = Color(0.927635, 0.108248, 0.606425, 0.42)
