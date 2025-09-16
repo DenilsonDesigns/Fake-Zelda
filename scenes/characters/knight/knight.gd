@@ -43,7 +43,7 @@ func _physics_process(delta: float) -> void:
 
 func follow_link(link_position: Vector2) -> void:
 	if knockback_timer > 0:
-		return 
+		return
 
 	var direction_to_link = link_position - global_position
 	var distance_from_link = direction_to_link.length()
@@ -137,9 +137,6 @@ func _on_agro_area_body_exited(body: Node2D) -> void:
 	if body == link:
 		link = null
 
-func _on_hit_box_area_entered(area: Area2D) -> void:
-	if area.name == "SwordHitBox":
-		take_damage(1, area.global_position)
 
 func take_damage(amount: int, from_position: Vector2) -> void:
 	health -= amount
@@ -167,3 +164,7 @@ func die() -> void:
 	var tween = get_tree().create_tween()
 	tween.tween_property(self, "modulate:a", 0.0, 0.5)
 	tween.tween_callback(queue_free)
+
+func _on_hurt_box_area_entered(area: Area2D) -> void:
+	if area.name == "SwordHitBox":
+		take_damage(1, area.global_position)
