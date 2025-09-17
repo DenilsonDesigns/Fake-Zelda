@@ -109,11 +109,12 @@ func play_idle_animation(dir: String) -> void:
 		animation_player.play(anim_name)
 
 func play_take_damage_animation() -> void:
+	# @NOTE: this should really be a take damage animation:
 	var blink_count = 6
 	for i in blink_count:
-		animation_player.visible = false
+		sprite_2d.visible = false
 		await get_tree().create_timer(0.1).timeout
-		animation_player.visible = true
+		sprite_2d.visible = true
 		await get_tree().create_timer(0.1).timeout
 
 func set_movement_target() -> void:
