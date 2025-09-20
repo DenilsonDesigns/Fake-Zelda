@@ -30,6 +30,10 @@ folder_colors={
 "res://tile_sets/": "yellow"
 }
 
+[global_group]
+
+enemy_hitbox=""
+
 [input]
 
 ui_left={

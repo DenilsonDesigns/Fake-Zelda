@@ -938,7 +938,7 @@ visible = false
 shape = SubResource("CircleShape2D_spyc7")
 debug_color = Color(0.925042, 0.273295, 0, 0.42)
 
-[node name="HitBox" type="Area2D" parent="."]
+[node name="HitBox" type="Area2D" parent="." groups=["enemy_hitbox"]]
 monitoring = false
 
 [node name="HitBoxShape" type="CollisionShape2D" parent="HitBox"]

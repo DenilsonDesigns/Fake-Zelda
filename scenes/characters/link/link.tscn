@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cr3lxb1hptwds"]
+[gd_scene load_steps=21 format=3 uid="uid://cr3lxb1hptwds"]
 
 [ext_resource type="Script" uid="uid://58fv7giqhb4m" path="res://scenes/characters/link/link.gd" id="1_735le"]
 [ext_resource type="Texture2D" uid="uid://cs0xueitjti44" path="res://assets/link.png" id="2_735le"]
@@ -406,6 +406,9 @@ radius = 6.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qa66e"]
 size = Vector2(11.8055, 2.99978)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_slcyy"]
+size = Vector2(10, 10)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_735le"]
 size = Vector2(7, 7)
 
@@ -440,6 +443,13 @@ shape = SubResource("RectangleShape2D_qa66e")
 disabled = true
 debug_color = Color(0.927635, 0.108248, 0.606425, 0.42)
 
+[node name="HurtBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_slcyy")
+debug_color = Color(0.94189, 0.242162, 3.85046e-07, 0.42)
+
 [node name="TransitionDoorDetector" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionDoorDetector"]
@@ -447,4 +457,5 @@ position = Vector2(0, -4)
 shape = SubResource("RectangleShape2D_735le")
 debug_color = Color(0.821297, 0.401793, 0, 0.42)
 
+[connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
 [connection signal="area_entered" from="TransitionDoorDetector" to="." method="_on_transition_door_detector_area_entered"]

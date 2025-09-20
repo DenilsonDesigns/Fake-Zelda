@@ -7,7 +7,7 @@ class_name Link extends CharacterBody2D
 var last_move_dir: Vector2 = Vector2.DOWN
 var is_attacking: bool = false
 var last_door_connection := -1
-var door_cooldown :bool = false
+var door_cooldown: bool = false
 
 func _physics_process(_delta: float) -> void:
 	var input_vector = Vector2(
@@ -85,3 +85,18 @@ func _on_transition_door_detector_area_entered(transition_door: TransitionDoor) 
 func reset_door_cooldown() -> void:
 	await get_tree().create_timer(0.5).timeout
 	door_cooldown = false
+
+func _on_hurt_box_area_entered(area: Area2D) -> void:
+	if area.is_in_group("enemy_hitbox"):
+		take_damage()
+
+func take_damage() -> void:
+	GameState.set_health(GameState.current_health - 1)
+
+	# @TODO: create "Hurt" animation
+	# if has_node("AnimationPlayer"):
+		# $AnimationPlayer.play("hurt")
+
+	# Optional: check for death
+	# if hearts <= 0:
+	# 	die()

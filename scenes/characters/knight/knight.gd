@@ -10,6 +10,7 @@ extends CharacterBody2D
 @export var max_walk_cycle: int = 6
 @export var speed: float = 20.0
 @export var pursuit_speed_multiplier: float = 1.3
+
 const KNOCKBACK_FORCE = 150.0
 const KNOCKBACK_DURATION = 0.2
 const MIN_FOLLOW_DISTANCE = 18.0
